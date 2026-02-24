@@ -9,17 +9,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #080c10;
-      --bg2: #0d1117;
-      --bg3: #111820;
-      --accent: #00e5ff;
-      --accent2: #ff3e6c;
-      --accent3: #7fff6e;
-      --text: #e8edf2;
-      --muted: #6b7f8f;
-      --border: rgba(0,229,255,0.12);
-      --card: rgba(13,20,30,0.85);
-      --glow: 0 0 40px rgba(0,229,255,0.18);
+      --bg: #0a0a0a;
+      --bg2: #111111;
+      --bg3: #181818;
+      --accent: #e0001b;
+      --accent2: #ff4444;
+      --accent3: #ffffff;
+      --text: #f0f0f0;
+      --muted: #888888;
+      --border: rgba(224,0,27,0.18);
+      --card: rgba(20,10,10,0.85);
+      --glow: 0 0 40px rgba(224,0,27,0.22);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,8 +51,8 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(224,0,27,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(224,0,27,0.04) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
       z-index: 0;
@@ -113,7 +113,7 @@
       transition: box-shadow 0.2s, opacity 0.2s;
     }
 
-    .nav-cta:hover { box-shadow: 0 0 20px rgba(0,229,255,0.45); opacity: 0.9; }
+    .nav-cta:hover { box-shadow: 0 0 20px rgba(224,0,27,0.5); opacity: 0.9; }
 
     /* ── HERO ── */
     #hero {
@@ -189,9 +189,9 @@
       text-transform: uppercase;
     }
 
-    .badge-green { color: var(--accent3); border-color: rgba(127,255,110,0.3); background: rgba(127,255,110,0.06); }
-    .badge-cyan  { color: var(--accent);  border-color: rgba(0,229,255,0.3);   background: rgba(0,229,255,0.06);  }
-    .badge-red   { color: var(--accent2); border-color: rgba(255,62,108,0.3);  background: rgba(255,62,108,0.06); }
+    .badge-green { color: #ffffff; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.07); }
+    .badge-cyan  { color: var(--accent2);  border-color: rgba(255,68,68,0.35);   background: rgba(255,68,68,0.08);  }
+    .badge-red   { color: var(--accent); border-color: rgba(224,0,27,0.35);  background: rgba(224,0,27,0.08); }
 
     .hero-ctas {
       display: flex;
@@ -274,7 +274,7 @@
     .t-prompt { color: var(--accent); }
     .t-cmd    { color: var(--text); }
     .t-out    { color: var(--muted); }
-    .t-val    { color: var(--accent3); }
+    .t-val    { color: #ffffff; }
     .t-warn   { color: var(--accent2); }
     .t-cursor {
       display: inline-block;
@@ -609,7 +609,7 @@
     .skill-bar {
       height: 100%;
       border-radius: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent3));
+      background: linear-gradient(90deg, var(--accent), #ff9999);
     }
 
     .skill-pct { color: var(--accent); font-size: 0.72rem; }
@@ -1249,9 +1249,9 @@
             <br />
             <div style="color:var(--muted); font-size:0.72rem; line-height:1.8;">
               <span style="color:var(--accent)">location:</span> Pensacola, FL<br />
-              <span style="color:var(--accent)">availability:</span> <span style="color:var(--accent3)">open</span><br />
-              <span style="color:var(--accent)">remote:</span> <span style="color:var(--accent3)">yes</span><br />
-              <span style="color:var(--accent)">local:</span> <span style="color:var(--accent3)">yes</span><br />
+              <span style="color:var(--accent)">availability:</span> <span style="color:#ffffff">open</span><br />
+              <span style="color:var(--accent)">remote:</span> <span style="color:#ffffff">yes</span><br />
+              <span style="color:var(--accent)">local:</span> <span style="color:#ffffff">yes</span><br />
               <span style="color:var(--accent)">employer:</span> First City Internet<br />
             </div>
           </div>
@@ -1311,7 +1311,7 @@
           <button type="submit" class="btn-primary" style="border:none;cursor:pointer;font-size:0.9rem;">
             Send Message →
           </button>
-          <p id="form-msg" style="font-family:'Share Tech Mono',monospace;font-size:0.78rem;color:var(--accent3);display:none;">
+          <p id="form-msg" style="font-family:'Share Tech Mono',monospace;font-size:0.78rem;color:#ffffff;display:none;">
             ✓ Message sent! I'll be in touch within 24 hours.
           </p>
         </form>
