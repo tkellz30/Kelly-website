@@ -712,6 +712,231 @@
 
     .footer-links a:hover { color: var(--accent); }
 
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4,8,12,0.88);
+      backdrop-filter: blur(10px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--bg2);
+      border: 1px solid rgba(0,229,255,0.25);
+      border-radius: 6px;
+      max-width: 560px;
+      width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 0 60px rgba(0,229,255,0.12), 0 40px 80px rgba(0,0,0,0.6);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.open .modal {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.25rem; right: 1.25rem;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--accent2); border-color: var(--accent2); }
+
+    .modal-tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      color: var(--accent2);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-icon { font-size: 2.2rem; margin-bottom: 0.75rem; display: block; }
+
+    .modal h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .modal-desc {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-section-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .modal-includes {
+      list-style: none;
+      margin-bottom: 1.75rem;
+    }
+
+    .modal-includes li {
+      font-size: 0.88rem;
+      color: var(--text);
+      padding: 0.55rem 0;
+      padding-left: 1.25rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .modal-includes li:last-child { border-bottom: none; }
+
+    .modal-includes li::before {
+      content: '→';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .modal-price {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--accent);
+    }
+
+    .modal-price span {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* service card click hint */
+    .service-card { cursor: pointer; }
+    .card-click-hint {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .service-card:hover .card-click-hint { opacity: 1; }
+
+    /* ── ACCORDION (How It Works) ── */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+
+    .step {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      background: var(--card);
+      transition: border-color 0.25s;
+    }
+
+    .step:hover { border-color: rgba(0,229,255,0.3); }
+    .step.open  { border-color: rgba(0,229,255,0.4); }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.4rem 1.75rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .step-num {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: rgba(0,229,255,0.18);
+      line-height: 1;
+      min-width: 2.5rem;
+      transition: color 0.25s;
+    }
+
+    .step.open .step-num { color: var(--accent); }
+
+    .step-header h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      flex: 1;
+    }
+
+    .step-chevron {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      transition: transform 0.3s, color 0.25s;
+    }
+
+    .step.open .step-chevron { transform: rotate(180deg); color: var(--accent); }
+
+    .step-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s ease;
+      padding: 0 1.75rem;
+    }
+
+    .step.open .step-body {
+      max-height: 300px;
+      padding: 0 1.75rem 1.5rem;
+    }
+
+    .step-body p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+    }
+
     /* ── ANIMATIONS ── */
     .fade-in {
       opacity: 0;
@@ -836,69 +1061,66 @@
       <div class="services-grid">
 
         <!-- Account Shield -->
-        <div class="service-card fade-in">
+        <div class="service-card fade-in" onclick="openModal('account-shield')">
           <span class="service-icon">🔐</span>
           <p class="service-tag">One-Time · Remote or Local</p>
           <h3>Account Shield</h3>
           <p>Lock down your most important accounts so hackers and scammers can't get in — even if they have your password.</p>
-          <ul class="service-includes">
-            <li>Password manager setup (Bitwarden, 1Password, or LastPass)</li>
-            <li>Two-factor authentication (2FA) on key accounts</li>
-            <li>Email security checkup (Gmail or Outlook)</li>
-            <li>Social media lockdown (Facebook & Instagram)</li>
-          </ul>
           <div class="service-price">$49 <span>/ session</span></div>
+          <div class="card-click-hint">▸ Click to see full details</div>
         </div>
 
         <!-- Device Defense -->
-        <div class="service-card fade-in">
+        <div class="service-card fade-in" onclick="openModal('device-defense')">
           <span class="service-icon">🛡️</span>
           <p class="service-tag">One-Time · Remote or Local</p>
           <h3>Device Defense</h3>
           <p>Clean up a slow, sketchy, or pop-up-plagued device and get it running safely again.</p>
-          <ul class="service-includes">
-            <li>Windows/Mac updates & startup cleanup</li>
-            <li>Browser hijack & adware removal</li>
-            <li>Risky extension audit & removal</li>
-            <li>Basic malware scan & cleanup</li>
-          </ul>
           <div class="service-price">$59 <span>/ session</span></div>
+          <div class="card-click-hint">▸ Click to see full details</div>
         </div>
 
         <!-- Full Setup -->
-        <div class="service-card featured fade-in">
+        <div class="service-card featured fade-in" onclick="openModal('full-setup')">
           <span class="featured-tag">POPULAR</span>
           <span class="service-icon">💻</span>
           <p class="service-tag">One-Time · Remote or Local</p>
           <h3>New Device + Full Security Setup</h3>
           <p>Just got a new phone or computer? Let me configure it right from the start — settings, security, and all the essentials.</p>
-          <ul class="service-includes">
-            <li>Essential settings & privacy configuration</li>
-            <li>Password manager + 2FA setup</li>
-            <li>Account recovery setup & verification</li>
-            <li>"Is this legit?" scam review walkthrough</li>
-          </ul>
           <div class="service-price">$79 <span>/ session</span></div>
+          <div class="card-click-hint">▸ Click to see full details</div>
         </div>
 
         <!-- Monthly Maintenance -->
-        <div class="service-card fade-in">
+        <div class="service-card fade-in" onclick="openModal('monthly')">
           <span class="service-icon">📅</span>
           <p class="service-tag">Subscription · Remote</p>
           <h3>Monthly Security Maintenance</h3>
-          <p>Ongoing peace of mind. I check in monthly to review your security posture, scan for threats, and answer any "is this a scam?" questions.</p>
-          <ul class="service-includes">
-            <li>Monthly security check-in (30 min)</li>
-            <li>Scam/phishing text & email reviews</li>
-            <li>Account & device health checks</li>
-            <li>Priority response for urgent issues</li>
-          </ul>
+          <p>Ongoing peace of mind. I check in monthly to review your security, scan for threats, and answer scam questions.</p>
           <div class="service-price">$25 <span>/ month</span></div>
+          <div class="card-click-hint">▸ Click to see full details</div>
         </div>
 
       </div>
     </div>
   </section>
+
+  <!-- SERVICE MODALS -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+    <div class="modal" id="modal-content">
+      <button class="modal-close" onclick="closeModal()">✕ close</button>
+      <span class="modal-icon" id="m-icon"></span>
+      <p class="modal-tag" id="m-tag"></p>
+      <h3 id="m-title"></h3>
+      <p class="modal-desc" id="m-desc"></p>
+      <p class="modal-section-title">What's included:</p>
+      <ul class="modal-includes" id="m-includes"></ul>
+      <div class="modal-footer">
+        <div class="modal-price"><span id="m-price-val"></span> <span id="m-price-label"></span></div>
+        <a class="btn-primary" href="#contact" onclick="closeModal()">Book This Service →</a>
+      </div>
+    </div>
+  </div>
 
   <!-- HOW IT WORKS -->
   <section id="how">
@@ -908,26 +1130,51 @@
       <p class="section-intro">Simple, no-hassle process — no ticket queues, no hold music, no upsells.</p>
 
       <div class="steps">
-        <div class="step fade-in">
-          <div class="step-num">01</div>
-          <h3>Reach Out</h3>
-          <p>Fill out the contact form or send me a message. Tell me what's going on and what you need help with.</p>
+
+        <div class="step fade-in" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num">01</div>
+            <h3>Reach Out</h3>
+            <span class="step-chevron">▼</span>
+          </div>
+          <div class="step-body">
+            <p>Fill out the contact form below or send me a direct message. Just tell me what's going on — what device, what problem, how long it's been happening. The more detail you give me, the faster I can help. No tech speak required.</p>
+          </div>
         </div>
-        <div class="step fade-in">
-          <div class="step-num">02</div>
-          <h3>Quick Consult</h3>
-          <p>I'll follow up to understand the issue and confirm the best approach — remote screen share or in-person in Pensacola.</p>
+
+        <div class="step fade-in" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num">02</div>
+            <h3>Quick Consult</h3>
+            <span class="step-chevron">▼</span>
+          </div>
+          <div class="step-body">
+            <p>I'll follow up — usually within a few hours — to make sure I understand what you need and pick the right service. We'll figure out if remote screen share works for your situation or if you'd prefer I come to you in person (Pensacola area only). No commitment yet.</p>
+          </div>
         </div>
-        <div class="step fade-in">
-          <div class="step-num">03</div>
-          <h3>We Fix It</h3>
-          <p>I walk you through everything in plain English while we work. No confusion, no jargon — just results.</p>
+
+        <div class="step fade-in" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num">03</div>
+            <h3>We Fix It</h3>
+            <span class="step-chevron">▼</span>
+          </div>
+          <div class="step-body">
+            <p>We schedule a session and get to work. I walk you through everything in plain English as we go — you'll know exactly what I'm doing and why. Most sessions take 30–60 minutes. I won't leave until the problem is actually solved, not just patched over.</p>
+          </div>
         </div>
-        <div class="step fade-in">
-          <div class="step-num">04</div>
-          <h3>You're Covered</h3>
-          <p>You leave with a more secure setup and the knowledge to maintain it. Optional monthly plan keeps you protected long-term.</p>
+
+        <div class="step fade-in" onclick="toggleStep(this)">
+          <div class="step-header">
+            <div class="step-num">04</div>
+            <h3>You're Covered</h3>
+            <span class="step-chevron">▼</span>
+          </div>
+          <div class="step-body">
+            <p>After the session you'll have a more secure, better-running setup and actually understand what changed and why. If you want ongoing protection, the Monthly Maintenance plan keeps me in your corner — monthly check-ins, scam reviews, and priority response whenever something pops up.</p>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1085,16 +1332,121 @@
     </ul>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Intersection Observer for fade-ins
+  <script>
+    // ── FADE IN OBSERVER ──
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-        }
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
       });
     }, { threshold: 0.12 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Form handler (placeholder — wi
+    // ── SERVICE MODAL DATA ──
+    const services = {
+      'account-shield': {
+        icon: '🔐',
+        tag: 'One-Time · Remote or Local',
+        title: 'Account Shield',
+        desc: 'Most account takeovers happen because of weak passwords, reused credentials, or missing two-factor authentication. This session locks all of that down — so even if a scammer gets your password, they still can\'t get in.',
+        includes: [
+          'Password manager setup — Bitwarden (free), 1Password, or LastPass by request',
+          'Two-factor authentication (2FA) enabled on email, banking, and social accounts',
+          'Email security checkup — Gmail or Outlook: recovery info, suspicious logins, forwarding rules',
+          'Social media lockdown — Facebook & Instagram: privacy settings, login alerts, recovery',
+          'Walk-through of how to spot phishing attempts going forward'
+        ],
+        price: '$49',
+        priceLabel: '/ one-time session'
+      },
+      'device-defense': {
+        icon: '🛡️',
+        tag: 'One-Time · Remote or Local',
+        title: 'Device Defense',
+        desc: 'Pop-ups, slow performance, weird toolbars, browser redirects — these are all signs something has taken hold of your device. This session cleans it up and makes sure it stays clean.',
+        includes: [
+          'Windows or macOS updates — ensuring your OS and drivers are fully patched',
+          'Startup program cleanup — removing apps that slow boot time and run in the background',
+          'Browser hijack removal — notifications, redirects, unwanted search engines',
+          'Risky or unknown browser extension audit and removal',
+          'Basic malware scan & cleanup using reputable tools (Malwarebytes, etc.)',
+          'Adware and potentially unwanted program (PUP) removal'
+        ],
+        price: '$59',
+        priceLabel: '/ one-time session'
+      },
+      'full-setup': {
+        icon: '💻',
+        tag: 'One-Time · Remote or Local',
+        title: 'New Device + Full Security Setup',
+        desc: 'Getting a new phone or computer set up correctly from day one is way easier than fixing problems later. This session covers everything — privacy settings, security basics, password management, and account recovery — so you start safe and stay safe.',
+        includes: [
+          'Essential privacy & security settings configured (Windows, macOS, iOS, or Android)',
+          'Password manager installed and key accounts migrated in',
+          'Two-factor authentication (2FA) set up on priority accounts',
+          'Account recovery options verified — backup email, phone number, recovery codes',
+          '"Is this legit?" walkthrough — how to spot scam texts, emails, and links',
+          'Scam check on any suspicious messages received recently'
+        ],
+        price: '$79',
+        priceLabel: '/ one-time session'
+      },
+      'monthly': {
+        icon: '📅',
+        tag: 'Ongoing Subscription · Remote',
+        title: 'Monthly Security Maintenance',
+        desc: 'Threats change every month. This plan keeps you protected long-term with regular check-ins, scam reviews, and priority access whenever something feels off. Think of it as having an IT person on call — without the corporate price tag.',
+        includes: [
+          'Monthly 30-minute remote check-in — account health, device status, any new concerns',
+          'Unlimited "is this a scam?" reviews — forward me any suspicious text, email, or link',
+          'Account & device health checks each session',
+          'Heads-up on new scams actively targeting people in your area or demographic',
+          'Priority response — monthly subscribers get answered first',
+          'Cancel anytime — no contracts, no cancellation fees'
+        ],
+        price: '$25',
+        priceLabel: '/ month — cancel anytime'
+      }
+    };
+
+    function openModal(id) {
+      const s = services[id];
+      document.getElementById('m-icon').textContent = s.icon;
+      document.getElementById('m-tag').textContent = s.tag;
+      document.getElementById('m-title').textContent = s.title;
+      document.getElementById('m-desc').textContent = s.desc;
+      document.getElementById('m-price-val').textContent = s.price;
+      document.getElementById('m-price-label').textContent = s.priceLabel;
+      const ul = document.getElementById('m-includes');
+      ul.innerHTML = s.includes.map(i => `<li>${i}</li>`).join('');
+      document.getElementById('modal-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOutside(e) {
+      if (e.target === document.getElementById('modal-overlay')) closeModal();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // ── ACCORDION ──
+    function toggleStep(el) {
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('open'));
+      if (!isOpen) el.classList.add('open');
+    }
+
+    // ── FORM ──
+    function handleSubmit(e) {
+      e.preventDefault();
+      const msg = document.getElementById('form-msg');
+      msg.style.display = 'block';
+      e.target.reset();
+    }
+  </script>-e 
+</body>
+</html>
